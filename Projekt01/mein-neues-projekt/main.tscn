@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6bd1mrh0f8x5"]
+
+[ext_resource type="PackedScene" uid="uid://c2tj4yj420ub3" path="res://Aufgabe1.glb" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://jft13rvyk47f" path="res://Aufgabe2.glb" id="2_0xm2m"]
+[ext_resource type="Material" uid="uid://6nkfmu8gpjxv" path="res://Decimeter.tres" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://bv01od2p4uvwj" path="res://box_move.gd" id="4_1bvp3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_lquwl"]
+sky_material = SubResource("ProceduralSkyMaterial_1bvp3")
+
+[sub_resource type="Environment" id="Environment_7mycd"]
+background_mode = 2
+sky = SubResource("Sky_lquwl")
+tonemap_mode = 2
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1.0118665, 0.072646365, 0, -0.07370316, 0.9973578, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.4330128, 0.24999997, 0, 0.49999988, 0.8660255, -0.50000006, 0.75000006, -0.4330126, -21.683502, 1.4657881, -5.448036)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7mycd")
+
+[node name="Aufgabe1" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(-0.9907685, 0, -26.268118, -17.389805, 55.66974, 0.09012122, 68.69864, 14.091778, -0.35602492, 185.81311, -90.34872, -25.81662)
+
+[node name="Aufgabe2" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(-0.028879777, 0, -2.0656466, 0, 2.0362267, 0, 2.0656466, 0, -0.028879777, -130.07289, -17.761263, 47.936295)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.9987711, -0.0018847319, 0.002991469, -0.0018948298, 0.98321724, -0.0058839056, -0.004193198, -0.008397246, -0.70979637, -47.17782, 0, -2139.1116)
+fov = 11.249999
+
+[node name="BoxMove" type="CSGBox3D" parent="Camera3D"]
+transform = Transform3D(0.107723825, 0.523903, -0.8534737, -2.3821733, 0.30857873, 0.13922387, 0.84336174, 0.8046981, 0.50226986, 0, 0.5, 0)
+material = ExtResource("3_1bvp3")
+script = ExtResource("4_1bvp3")

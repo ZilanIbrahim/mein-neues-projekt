@@ -1,0 +1,7 @@
+[gd_resource type="ORMMaterial3D" load_steps=2 format=3 uid="uid://6nkfmu8gpjxv"]
+
+[ext_resource type="Texture2D" uid="uid://c24fns25xea7t" path="res://MeterGrid.png" id="1_o0reo"]
+
+[resource]
+albedo_texture = ExtResource("1_o0reo")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
